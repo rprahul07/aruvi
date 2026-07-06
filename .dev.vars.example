@@ -1,0 +1,16 @@
+# Local env vars for `wrangler dev` / `opennextjs-cloudflare preview`.
+# Copy to `.dev.vars` (gitignored) and fill in. This is the Cloudflare-runtime
+# equivalent of .env.local — the OpenNext preview reads from here, not .env.local.
+
+NEXT_PUBLIC_SITE_URL=http://localhost:8787
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-public-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+RAZORPAY_KEY_ID=rzp_test_xxxxxxxxxxxx
+RAZORPAY_KEY_SECRET=your-razorpay-key-secret
+RAZORPAY_WEBHOOK_SECRET=your-razorpay-webhook-secret
+NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_xxxxxxxxxxxx
+
+CRON_SECRET=your-long-random-cron-secret
+NEXT_PUBLIC_GA_MEASUREMENT_ID=

@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aurvi",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-08-01",
+  // nodejs_compat is required by the OpenNext adapter (Node built-ins like
+  // node:crypto, Buffer, process are used across the app).
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Secrets (SUPABASE_SERVICE_ROLE_KEY, RAZORPAY_KEY_SECRET, RAZORPAY_WEBHOOK_SECRET,
+  // CRON_SECRET) are NOT put here — set them with `wrangler secret put <NAME>`.
+  // Public/build-time vars (NEXT_PUBLIC_*) come from the build environment.
+  //
+  // Optional: schedule the reservation sweep via Cloudflare Cron Triggers:
+  // "triggers": { "crons": ["*/10 * * * *"] }
+  // and handle scheduled() — or call the HTTP cron endpoint from an external scheduler.
+}
