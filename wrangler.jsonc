@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "aurvi",
+  "name": "aruvi",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-08-01",
   // nodejs_compat is required by the OpenNext adapter (Node built-ins like
