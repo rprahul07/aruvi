@@ -1,0 +1,23 @@
+# Netlify deployment config.
+# This file OVERRIDES the build settings in the Netlify UI, so the build
+# command is pinned here regardless of what the dashboard says.
+#
+# IMPORTANT: Do NOT set NODE_ENV as a Netlify environment variable.
+#   - NODE_ENV=production at install time makes npm skip devDependencies
+#     (typescript, tailwind, etc.), breaking the build.
+#   - NODE_ENV=development at build time breaks the production React build
+#     ("Cannot read properties of null (reading 'useState')").
+# Netlify's Next.js runtime already sets NODE_ENV=production for the build
+# step while still installing devDependencies. Leave it unset.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Netlify's official Next.js runtime (SSR, API routes, image optimization,
+# middleware). Auto-detected, but pinned here to be explicit.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
