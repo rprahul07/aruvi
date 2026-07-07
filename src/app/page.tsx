@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getHomepageSections } from "@/lib/data/merchandising";
 import { getAllCategories, getProductsByCollectionSlug } from "@/lib/data/catalog";
 import { ProductCard } from "@/components/product/product-card";
@@ -56,7 +57,23 @@ export default async function HomePage() {
                     href={`/category/${category.slug}`}
                     className="group relative flex aspect-square items-end overflow-hidden rounded-lg bg-ink/5 p-4"
                   >
-                    <span className="font-display text-lg text-ink transition-colors group-hover:text-gold-deep">
+                    {category.imageUrl ? (
+                      <>
+                        <Image
+                          src={category.imageUrl}
+                          alt={category.name}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                          className="object-cover transition-transform duration-700 ease-[var(--ease-brand)] group-hover:scale-105"
+                        />
+                        <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent" />
+                      </>
+                    ) : null}
+                    <span
+                      className={`relative font-display text-lg transition-colors ${
+                        category.imageUrl ? "text-white" : "text-ink group-hover:text-gold-deep"
+                      }`}
+                    >
                       {category.name}
                     </span>
                   </Link>
